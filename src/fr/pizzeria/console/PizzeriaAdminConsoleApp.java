@@ -62,23 +62,30 @@ public class PizzeriaAdminConsoleApp {
 				break;
 
 			case 3:
-				System.out.println("Mise à jour d'une pizza :");							
-				System.out.println();
+				System.out.println("Mise à jour d'une pizza :");
 				System.out.println("Code de la pizza à mettre à jours ?");
-				System.out.println("99 pour abandoner");
+				System.out.println("(99 pour abandoner)");
+
 				String codeupdatepizza = scn.next();
-				if (codeupdatepizza.equals(99)){break;};
+
+				if (codeupdatepizza.equals(99)) {
+					break;
+				}
+				;
+
 				for (int i = 0; i < ptrpizza; i++) {
-					if (pizzas[i].getCode().equals(codeupdatepizza)) {
+					if (pizzas[i] != null) {
+						if (pizzas[i].getCode().equals(codeupdatepizza)) {
 
-						System.out.println("saisir code :");
-						pizzas[i].setCode(scn.next());
+							System.out.println("saisir code :");
+							pizzas[i].setCode(scn.next());
 
-						System.out.println("saisir nom (sans espace):");
-						pizzas[i].setNom(scn.next());
+							System.out.println("saisir nom (sans espace):");
+							pizzas[i].setNom(scn.next());
 
-						System.out.println("saisir prix :");
-						pizzas[i].setPrix(scn.nextDouble());
+							System.out.println("saisir prix :");
+							pizzas[i].setPrix(scn.nextDouble());
+						}
 					}
 				}
 
@@ -90,8 +97,10 @@ public class PizzeriaAdminConsoleApp {
 				System.out.println("Code de la pizza à mettre à jours ?");
 				String codedeletepizza = scn.next();
 				for (int i = 0; i < ptrpizza; i++) {
-					if (pizzas[i].getCode().equals(codedeletepizza)) {
-						pizzas[i] = null;
+					if (pizzas[i] != null) {
+						if (pizzas[i].getCode().equals(codedeletepizza)) {
+							pizzas[i] = null;
+						}
 					}
 				}
 				break;
