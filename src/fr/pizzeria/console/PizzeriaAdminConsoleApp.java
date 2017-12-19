@@ -49,7 +49,7 @@ public class PizzeriaAdminConsoleApp {
 				code = scn.next();
 
 				String nom;
-				System.out.println("saisir nom:");
+				System.out.println("saisir nom (sans espace):");
 				nom = scn.next();
 
 				double prix;
@@ -74,7 +74,7 @@ public class PizzeriaAdminConsoleApp {
 						System.out.println("saisir code :");
 						pizzas[i].setCode(scn.next());
 
-						System.out.println("saisir nom:");
+						System.out.println("saisir nom (sans espace):");
 						pizzas[i].setNom(scn.next());
 
 						System.out.println("saisir prix :");
