@@ -9,7 +9,7 @@ public class PizzeriaAdminConsoleApp {
 		Scanner scn = new Scanner(System.in);
 		int choix = 99;
 		Pizza[] pizzas = new Pizza[1000];
-		int ptrpizza = 0;
+		int ptrpizza = 0; // pointeurs de la position dans le tableau de pizza
 		pizzas[0] = new Pizza("PEP", "Pépéroni", 12.50);
 		pizzas[1] = new Pizza("MAR", "Margherita", 14.00);
 		pizzas[2] = new Pizza("REIN", "La Reine", 11.50);
@@ -62,12 +62,12 @@ public class PizzeriaAdminConsoleApp {
 				break;
 
 			case 3:
-				System.out.println("Mise à jour d'une pizza :");
-
+				System.out.println("Mise à jour d'une pizza :");							
 				System.out.println();
 				System.out.println("Code de la pizza à mettre à jours ?");
+				System.out.println("99 pour abandoner");
 				String codeupdatepizza = scn.next();
-
+				if (codeupdatepizza.equals(99)){break;};
 				for (int i = 0; i < ptrpizza; i++) {
 					if (pizzas[i].getCode().equals(codeupdatepizza)) {
 
