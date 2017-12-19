@@ -38,7 +38,7 @@ public class PizzeriaAdminConsoleApp {
 				
 				String code;
 				System.out.println("saisir code :");
-				code = scn.next();
+				code = scn.nextLine();
 				
 				String nom;
 				System.out.println("saisir nom:");
