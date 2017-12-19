@@ -14,8 +14,7 @@ public class Pizza {
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
-		Pizza.nbpizzas++;
-		
+		Pizza.nbpizzas++;	
 	}
 
 	public int getId() {

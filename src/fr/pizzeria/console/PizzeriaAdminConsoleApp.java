@@ -3,13 +3,17 @@ package fr.pizzeria.console;
 import java.util.Scanner;
 import fr.pizzeria.model.Pizza;
 
+
+
 public class PizzeriaAdminConsoleApp {
 
+	public static Pizza[]pizzas=new Pizza[1000];
+//	public static int ptrpizza=0; // pointeurs de la position dans le tableau de pizza
+	
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
 		int choix = 99;
 		Pizza[] pizzas = new Pizza[1000];
-		int ptrpizza = 0; // pointeurs de la position dans le tableau de pizza
 		pizzas[0] = new Pizza("PEP", "Pépéroni", 12.50);
 		pizzas[1] = new Pizza("MAR", "Margherita", 14.00);
 		pizzas[2] = new Pizza("REIN", "La Reine", 11.50);
@@ -18,7 +22,8 @@ public class PizzeriaAdminConsoleApp {
 		pizzas[5] = new Pizza("SAV", "La savoyarde", 13.00);
 		pizzas[6] = new Pizza("ORI", "L'Orientale", 13.50);
 		pizzas[7] = new Pizza("IND", "L'indienne", 14.00);
-		ptrpizza = 8;
+		
+//		Menu menu = new menu(tab, ptr);
 
 		do {
 			System.out.println("***** Pizzeria Administration *****");
@@ -32,10 +37,9 @@ public class PizzeriaAdminConsoleApp {
 
 			case 1:
 				System.out.println("Liste des pizzas :");
-				for (int i = 0; i < ptrpizza; i++) {
+				for (int i = 0; i < pizzas.length; i++) {
 					if (pizzas[i] != null) {
 						pizzas[i].afficher();
-						System.out.println(pizzas[i].getId());
 					}
 				}
 				System.out.println();
@@ -55,9 +59,17 @@ public class PizzeriaAdminConsoleApp {
 				double prix;
 				System.out.println("saisir prix :");
 				prix = scn.nextDouble();
+				
+				
+				for (int i = 0; i < pizzas.length; i++) {
+					if (pizzas[i] == null) {
+						pizzas[i] = new Pizza(code, nom, prix);
+						break;
+					}
+				}
 
-				pizzas[ptrpizza] = new Pizza(code, nom, prix);
-				ptrpizza++;
+//				pizzas[pizzas.] = new Pizza(code, nom, prix);
+//				ptrpizza++;
 
 				break;
 
@@ -73,7 +85,7 @@ public class PizzeriaAdminConsoleApp {
 				}
 				;
 
-				for (int i = 0; i < ptrpizza; i++) {
+				for (int i = 0; i < pizzas.length; i++) {
 					if (pizzas[i] != null) {
 						if (pizzas[i].getCode().equals(codeupdatepizza)) {
 
@@ -85,6 +97,7 @@ public class PizzeriaAdminConsoleApp {
 
 							System.out.println("saisir prix :");
 							pizzas[i].setPrix(scn.nextDouble());
+							break;
 						}
 					}
 				}
@@ -96,10 +109,11 @@ public class PizzeriaAdminConsoleApp {
 				System.out.println();
 				System.out.println("Code de la pizza à mettre à jours ?");
 				String codedeletepizza = scn.next();
-				for (int i = 0; i < ptrpizza; i++) {
+				for (int i = 0; i < pizzas.length; i++) {
 					if (pizzas[i] != null) {
 						if (pizzas[i].getCode().equals(codedeletepizza)) {
 							pizzas[i] = null;
+							break;
 						}
 					}
 				}
