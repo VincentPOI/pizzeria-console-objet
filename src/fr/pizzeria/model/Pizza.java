@@ -2,17 +2,20 @@ package fr.pizzeria.model;
 
 public class Pizza {
 	
-	private static int id;
+	private int id;
 	private String code;
 	private String nom;
 	private double prix;
+	private static int nbpizzas;
 
 	public Pizza(String code, String nom, double prix) {
-		super();
-		id = Pizza.id++;
+		super();	
+		this.id= nbpizzas;
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
+		Pizza.nbpizzas++;
+		
 	}
 
 	public int getId() {
@@ -44,6 +47,6 @@ public class Pizza {
 	}
 
 	public void afficher() {
-		System.out.println(code + " -> "+ nom + " (" + prix+"€)");
+			System.out.println(code + " -> "+ nom + " (" + prix+"€)");
 	}
 }

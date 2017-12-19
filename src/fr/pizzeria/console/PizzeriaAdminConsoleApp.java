@@ -7,19 +7,19 @@ public class PizzeriaAdminConsoleApp {
 
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
-		int choix = 99;		
-		Pizza[] pizzas  = new Pizza[1000];
-		int pos = 0;
+		int choix = 99;
+		Pizza[] pizzas = new Pizza[1000];
+		int ptrpizza = 0;
 		pizzas[0] = new Pizza("PEP", "Pépéroni", 12.50);
-		pizzas[1] = new Pizza("MAR", "Margherita", 12.50);
-		pizzas[2] = new Pizza( "REIN", "La Reine", 12.50);
-		pizzas[3] = new Pizza( "FRO", "Les 4 fromages", 12.50);
-		pizzas[4] = new Pizza( "CAN", "La cannibale", 12.50);
-		pizzas[5] = new Pizza( "SAV", "La savoyarde", 12.50);
-		pizzas[6] = new Pizza( "ORI", "L'Orientale", 12.50);
-		pizzas[7] = new Pizza( "IND", "L'indienne", 12.50);
-		pos = 8;	
-		
+		pizzas[1] = new Pizza("MAR", "Margherita", 14.00);
+		pizzas[2] = new Pizza("REIN", "La Reine", 11.50);
+		pizzas[3] = new Pizza("FRO", "Les 4 fromages", 12.00);
+		pizzas[4] = new Pizza("CAN", "La cannibale", 12.50);
+		pizzas[5] = new Pizza("SAV", "La savoyarde", 13.00);
+		pizzas[6] = new Pizza("ORI", "L'Orientale", 13.50);
+		pizzas[7] = new Pizza("IND", "L'indienne", 14.00);
+		ptrpizza = 8;
+
 		do {
 			System.out.println("***** Pizzeria Administration *****");
 			System.out.println("1. Lister les pizzas");
@@ -32,10 +32,12 @@ public class PizzeriaAdminConsoleApp {
 
 			case 1:
 				System.out.println("Liste des pizzas :");
-				for (int i = 0; i < pos; i++) {
-					pizzas[i].afficher();
-					System.out.println(pizzas[i].getId());
-				}					
+				for (int i = 0; i < ptrpizza; i++) {
+					if (pizzas[i] != null) {
+						pizzas[i].afficher();
+						System.out.println(pizzas[i].getId());
+					}
+				}
 				System.out.println();
 				break;
 
@@ -53,9 +55,9 @@ public class PizzeriaAdminConsoleApp {
 				double prix;
 				System.out.println("saisir prix :");
 				prix = scn.nextDouble();
-				
-				pizzas[pos] = new Pizza(code, nom, prix);
-				pos++;
+
+				pizzas[ptrpizza] = new Pizza(code, nom, prix);
+				ptrpizza++;
 
 				break;
 
@@ -64,11 +66,11 @@ public class PizzeriaAdminConsoleApp {
 
 				System.out.println();
 				System.out.println("Code de la pizza à mettre à jours ?");
-				String piz = scn.next();
-				
-				for(int i = 0; i<pos ; i++){
-					if (pizzas[i].getCode().equals(piz)){
-						
+				String codeupdatepizza = scn.next();
+
+				for (int i = 0; i < ptrpizza; i++) {
+					if (pizzas[i].getCode().equals(codeupdatepizza)) {
+
 						System.out.println("saisir code :");
 						pizzas[i].setCode(scn.next());
 
@@ -76,14 +78,22 @@ public class PizzeriaAdminConsoleApp {
 						pizzas[i].setNom(scn.next());
 
 						System.out.println("saisir prix :");
-						pizzas[i].setPrix(scn.nextDouble());						
+						pizzas[i].setPrix(scn.nextDouble());
 					}
 				}
-				
+
 				break;
 
 			case 4:
 				System.out.println("Suppression d'une pizza :");
+				System.out.println();
+				System.out.println("Code de la pizza à mettre à jours ?");
+				String codedeletepizza = scn.next();
+				for (int i = 0; i < ptrpizza; i++) {
+					if (pizzas[i].getCode().equals(codedeletepizza)) {
+						pizzas[i] = null;
+					}
+				}
 				break;
 
 			default:
