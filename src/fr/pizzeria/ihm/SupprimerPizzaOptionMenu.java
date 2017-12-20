@@ -1,7 +1,8 @@
 package fr.pizzeria.ihm;
 
 import java.util.Scanner;
-import fr.pizzeria.model.Pizza;
+
+import fr.pizzeria.dao.PizzaDaoImpl;
 
 public class SupprimerPizzaOptionMenu extends OptionMenu {
 
@@ -10,7 +11,7 @@ public class SupprimerPizzaOptionMenu extends OptionMenu {
 	/**
 	 * @param tabpizza
 	 */
-	public SupprimerPizzaOptionMenu(Pizza[] tabpizza, Scanner scn) {
+	public SupprimerPizzaOptionMenu(PizzaDaoImpl tabpizza, Scanner scn) {
 		super(tabpizza, scn);
 		this.libelle = super.getLibelle() + "Supprimer une pizza";
 	}
@@ -23,18 +24,18 @@ public class SupprimerPizzaOptionMenu extends OptionMenu {
 	@Override
 	public boolean execute() {
 		System.out.println("Suppression d'une pizza :");
-		System.out.println();
-		System.out.println("Code de la pizza à mettre à jours ?");
+		System.out.println("Code de la pizza à supprimer ?");
+		System.out.println("(99 pour abandoner)");
 		String codedeletepizza = scn.next();
-		for (int i = 0; i < this.tabpizza.length; i++) {
-			if (this.tabpizza[i] != null) {
-				if (this.tabpizza[i].getCode().equals(codedeletepizza)) {
-					this.tabpizza[i] = null;
-					return true;
-				}
-			}
+		
+		if (codedeletepizza.equals(99)) {
+			return false;
 		}
-		return false;
+		
+		
+		this.tabpizza.deletePizza(codedeletepizza);
+		
+		return true;
 
 	}
 }

@@ -1,6 +1,6 @@
 package fr.pizzeria.ihm;
 
-import fr.pizzeria.model.Pizza;
+import fr.pizzeria.dao.PizzaDaoImpl;
 import java.util.Scanner;
 
 /**
@@ -10,11 +10,11 @@ import java.util.Scanner;
 public abstract class OptionMenu {
 
 	protected String libelle;
-	protected Pizza[] tabpizza;
+	protected PizzaDaoImpl tabpizza;
 	protected Scanner scn;
 	private static int nboptions;
 
-	public OptionMenu(Pizza[] tabpizza, Scanner scn) {
+	public OptionMenu(PizzaDaoImpl tabpizza, Scanner scn) {
 		super();
 		this.scn = scn;
 		this.libelle = Integer.toString(nboptions + 1) + ". ";

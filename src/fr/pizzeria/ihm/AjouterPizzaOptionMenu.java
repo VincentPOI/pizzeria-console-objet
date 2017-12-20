@@ -1,6 +1,8 @@
 package fr.pizzeria.ihm;
 
 import java.util.Scanner;
+
+import fr.pizzeria.dao.PizzaDaoImpl;
 import fr.pizzeria.model.Pizza;
 
 public class AjouterPizzaOptionMenu extends OptionMenu {
@@ -10,7 +12,7 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 	/**
 	 * @param tabpizza
 	 */
-	public AjouterPizzaOptionMenu(Pizza[] tabpizza, Scanner scn) {
+	public AjouterPizzaOptionMenu(PizzaDaoImpl tabpizza, Scanner scn) {
 		super(tabpizza, scn);
 		this.libelle = super.getLibelle() + "Ajouter une pizza";
 	}
@@ -35,13 +37,15 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 		double prix;
 		System.out.println("saisir prix :");
 		prix = scn.nextDouble();
+		
+		this.tabpizza.saveNewPizza(new Pizza(code, nom, prix));
 
-		for (int i = 0; i < this.tabpizza.length; i++) {
-			if (this.tabpizza[i] == null) {
-				this.tabpizza[i] = new Pizza(code, nom, prix);
-				return true;
-			}
-		}
+//		for (int i = 0; i < this.tabpizza.length; i++) {
+//			if (this.tabpizza[i] == null) {
+//				this.tabpizza[i] = new Pizza(code, nom, prix);
+//				return true;
+//			}
+//		}
 		return false;
 
 	}

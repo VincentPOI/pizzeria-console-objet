@@ -1,6 +1,8 @@
 package fr.pizzeria.ihm;
 
 import java.util.Scanner;
+
+import fr.pizzeria.dao.PizzaDaoImpl;
 import fr.pizzeria.model.Pizza;
 
 public class ModifierPizzaOptionMenu extends OptionMenu {
@@ -10,7 +12,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 	/**
 	 * @param tabpizza
 	 */
-	public ModifierPizzaOptionMenu(Pizza[] tabpizza, Scanner scn) {
+	public ModifierPizzaOptionMenu(PizzaDaoImpl tabpizza, Scanner scn) {
 		super(tabpizza, scn);
 		this.libelle = super.getLibelle() + "Modifier une pizza";
 	}
@@ -31,24 +33,22 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 		if (codeupdatepizza.equals(99)) {
 			return false;
 		}
-		;
+		
+		String code;
+		System.out.println("saisir code :");
+		code = scn.next();
 
-		for (int i = 0; i < this.tabpizza.length; i++) {
-			if (this.tabpizza[i] != null) {
-				if (this.tabpizza[i].getCode().equals(codeupdatepizza)) {
+		String nom;
+		System.out.println("saisir nom (sans espace):");
+		nom = scn.next();
 
-					System.out.println("saisir code :");
-					this.tabpizza[i].setCode(scn.next());
-
-					System.out.println("saisir nom (sans espace):");
-					this.tabpizza[i].setNom(scn.next());
-
-					System.out.println("saisir prix :");
-					this.tabpizza[i].setPrix(scn.nextDouble());
-					break;
-				}
-			}
-		}
+		double prix;
+		System.out.println("saisir prix :");
+		prix = scn.nextDouble();
+		
+		
+		this.tabpizza.updatePizza(codeupdatepizza, new Pizza(code, nom, prix));
+		
 
 		return true;
 

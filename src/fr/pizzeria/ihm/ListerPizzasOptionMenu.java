@@ -2,6 +2,7 @@ package fr.pizzeria.ihm;
 
 import java.util.Scanner;
 
+import fr.pizzeria.dao.PizzaDaoImpl;
 import fr.pizzeria.model.Pizza;
 
 /**
@@ -15,7 +16,7 @@ public class ListerPizzasOptionMenu extends OptionMenu {
 	/**
 	 * @param tabpizza
 	 */
-	public ListerPizzasOptionMenu(Pizza[] tabpizza, Scanner scn) {
+	public ListerPizzasOptionMenu(PizzaDaoImpl tabpizza, Scanner scn) {
 		super(tabpizza, null);
 		this.libelle = super.getLibelle() + "Lister les pizzas";
 	}
@@ -27,13 +28,13 @@ public class ListerPizzasOptionMenu extends OptionMenu {
 
 	@Override
 	public boolean execute() {
-		System.out.println("Liste des pizzas :");
-		for (int i = 0; i < this.tabpizza.length; i++) {
-			if (this.tabpizza[i] != null) {
-				this.tabpizza[i].afficher();
+		
+		Pizza[] pizzas = this.tabpizza.findAllPizzas();
+		for (int i = 0; i < pizzas.length; i++) {
+			if (pizzas[i] != null) {
+				pizzas[i].afficher();
 			}
 		}
-		System.out.println();
 		return true;
 	}
 }

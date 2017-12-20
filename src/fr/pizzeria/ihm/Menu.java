@@ -2,11 +2,12 @@ package fr.pizzeria.ihm;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import fr.pizzeria.model.Pizza;
+
+import fr.pizzeria.dao.PizzaDaoImpl;
 
 public class Menu {
 	
-	private Pizza[] tabpizza;
+	private PizzaDaoImpl tabpizza;
 	private Scanner scn;
 	private ArrayList<OptionMenu> listeOptions = new ArrayList<OptionMenu>();
 
@@ -14,7 +15,7 @@ public class Menu {
 		return listeOptions.get(i);
 	}
 	
-	public Menu(Pizza[] tabpizza, Scanner scn) {
+	public Menu(PizzaDaoImpl tabpizza, Scanner scn) {
 		super();
 		this.tabpizza = tabpizza;
 		this.scn = scn;
@@ -24,11 +25,11 @@ public class Menu {
 		listeOptions.add(new SupprimerPizzaOptionMenu(tabpizza, scn));
 	}
 
-	public Pizza[] getTabpizza() {
+	public PizzaDaoImpl getTabpizza() {
 		return tabpizza;
 	}
 
-	public void setTabpizza(Pizza[] tabpizza) {
+	public void setTabpizza(PizzaDaoImpl tabpizza) {
 		this.tabpizza = tabpizza;
 	}
 
