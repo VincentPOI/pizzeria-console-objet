@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm;
 
+import java.util.Scanner;
 import fr.pizzeria.model.Pizza;
 
 public class SupprimerPizzaOptionMenu extends OptionMenu {
@@ -9,9 +10,9 @@ public class SupprimerPizzaOptionMenu extends OptionMenu {
 	/**
 	 * @param tabpizza
 	 */
-	public SupprimerPizzaOptionMenu(Pizza[] tabpizza) {
-		super(tabpizza);
-		this.libelle = super.getLibelle()+"Supprimer une pizza";
+	public SupprimerPizzaOptionMenu(Pizza[] tabpizza, Scanner scn) {
+		super(tabpizza, scn);
+		this.libelle = super.getLibelle() + "Supprimer une pizza";
 	}
 
 	@Override
@@ -19,22 +20,21 @@ public class SupprimerPizzaOptionMenu extends OptionMenu {
 		return this.libelle;
 	}
 
-
 	@Override
 	public boolean execute() {
-//		System.out.println("Suppression d'une pizza :");
-//		System.out.println();
-//		System.out.println("Code de la pizza à mettre à jours ?");
-//		String codedeletepizza = scn.next();
-//		for (int i = 0; i < pizzas.length; i++) {
-//			if (pizzas[i] != null) {
-//				if (pizzas[i].getCode().equals(codedeletepizza)) {
-//					pizzas[i] = null;
-//					break;
-//				}
-//			}
-//		}
-		return true;
+		System.out.println("Suppression d'une pizza :");
+		System.out.println();
+		System.out.println("Code de la pizza à mettre à jours ?");
+		String codedeletepizza = scn.next();
+		for (int i = 0; i < this.tabpizza.length; i++) {
+			if (this.tabpizza[i] != null) {
+				if (this.tabpizza[i].getCode().equals(codedeletepizza)) {
+					this.tabpizza[i] = null;
+					return true;
+				}
+			}
+		}
+		return false;
 
 	}
 }
