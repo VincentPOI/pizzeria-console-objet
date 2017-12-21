@@ -39,6 +39,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 		String code;
 		System.out.println("saisir code :");
 		code = scn.next();
+		
 
 		String nom;
 		System.out.println("saisir nom (sans espace):");

@@ -1,6 +1,7 @@
 package fr.pizzeria.ihm;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDaoImpl;
@@ -9,7 +10,7 @@ public class Menu {
 	
 	private PizzaDaoImpl tabpizza;
 	private Scanner scn;
-	private ArrayList<OptionMenu> listeOptions = new ArrayList<OptionMenu>();
+	private List<OptionMenu> listeOptions = new ArrayList<OptionMenu>();
 
 	public OptionMenu getOptions(int i) {
 		return listeOptions.get(i);
