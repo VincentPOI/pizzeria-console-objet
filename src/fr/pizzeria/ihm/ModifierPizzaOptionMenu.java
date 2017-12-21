@@ -5,6 +5,7 @@ import java.util.Scanner;
 import fr.pizzeria.dao.PizzaDaoImpl;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.exception.UpdatePizzaException;
+import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
 public class ModifierPizzaOptionMenu extends OptionMenu {
@@ -49,9 +50,11 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 		System.out.println("saisir prix :");
 		prix = scn.nextDouble();
 		
+		System.out.println("saisir la catégorie (VIANDE/POISSON/SANS_VIANDE) :");
+		CategoriePizza cate = CategoriePizza.valueOf(scn.next().toUpperCase());
 		
 		try {
-			this.tabpizza.updatePizza(codeupdatepizza, new Pizza(code, nom, prix));
+			this.tabpizza.updatePizza(codeupdatepizza, new Pizza(code, nom, prix,cate));
 		} catch (UpdatePizzaException e) {
 			System.out.println(e.getMessage());
 		}
