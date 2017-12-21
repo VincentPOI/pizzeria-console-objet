@@ -32,15 +32,8 @@ public class ListerPizzasOptionMenu extends OptionMenu {
 		
 		List<Pizza> pizzas= this.tabpizza.findAllPizzas();
 		for (Pizza pizza : pizzas) {
-            pizza.afficher();
+            System.out.println(pizza);
         }
-		
-//		Pizza[] pizzas = this.tabpizza.findAllPizzas();
-//		for (int i = 0; i < pizzas.length; i++) {
-//			if (pizzas[i] != null) {
-//				pizzas[i].afficher();
-//			}
-//		}
 		return true;
 	}
 }

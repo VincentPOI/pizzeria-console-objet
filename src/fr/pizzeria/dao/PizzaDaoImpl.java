@@ -33,21 +33,7 @@ public class PizzaDaoImpl implements IPizzaDao {
 
 	@Override
 	public boolean saveNewPizza(Pizza pizza) throws SavePizzaException {
-
-		// boolean pizzaSauvegarde = false;
 		this.pizzas.add(pizza);
-
-		// for (int i = 0; i < this.pizzas.length; i++) {
-		// if (this.pizzas[i] == null) {
-		// this.pizzas[i] = pizza;
-		// pizzaSauvegarde = true;
-		// }
-		// if (!pizzaSauvegarde){
-		// throw new SavePizzaException("le tableau est plein");
-		// }
-		// }
-		//
-
 		return false;
 	}
 
@@ -66,17 +52,6 @@ public class PizzaDaoImpl implements IPizzaDao {
 			throw new UpdatePizzaException("la pizza n'existe pas");
 		}
 
-		// for (int i = 0; i < this.pizzas.length; i++) {
-		// if (this.pizzas[i] != null) {
-		// if (this.pizzas[i].getCode().equals(codePizza)) {
-		// this.pizzas[i] = pizza;
-		// pizzaUpdate = true;
-		// }
-		// }
-		// if (!pizzaUpdate){
-		// throw new UpdatePizzaException("la pizza n'existe pas");
-		// }
-		// }
 		return false;
 	}
 
@@ -96,21 +71,8 @@ public class PizzaDaoImpl implements IPizzaDao {
 		if (!pizzaDelete) {
 			throw new DeletePizzaException("la pizza n'existe pas et n'as pas pu etre supprimée");
 		} else {
-			this.pizzas.remove(this.pizzas.indexOf(todelete));
+			this.pizzas.remove(todelete);
 		}
-
-		// for (int i = 0; i < this.pizzas.length; i++) {
-		// if (this.pizzas[i] != null) {
-		// if (this.pizzas[i].getCode().equals(codePizza)) {
-		// this.pizzas[i] = null;
-		// pizzaDelete = true;
-		// }
-		// }
-		// if (!pizzaDelete){
-		// throw new DeletePizzaException("la pizza n'existe pas et n'as pas pu
-		// etre supprimée");
-		// }
-		// }
 		return false;
 	}
 

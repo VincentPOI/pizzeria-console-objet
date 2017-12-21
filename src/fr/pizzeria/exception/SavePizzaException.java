@@ -1,6 +1,6 @@
 package fr.pizzeria.exception;
 
-public class SavePizzaException extends Exception{
+public class SavePizzaException extends StockageException{
 	
 	public SavePizzaException(String msg){
 		super(msg);

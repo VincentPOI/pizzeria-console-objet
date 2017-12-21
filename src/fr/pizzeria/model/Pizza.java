@@ -1,14 +1,25 @@
 package fr.pizzeria.model;
-
+import fr.pizzeria.utils.StringUtils;
+import fr.pizzeria.utils.ToString;
 public class Pizza {
 	
 	private int id;
+	
+	@ToString(uppercase = true, separateur = " -> ")
 	private String code;
+	
+	@ToString(separateur = " (")
 	private String nom;
+	
+	@ToString(separateur = "€) ")
 	private double prix;
+	
+	@ToString
 	private CategoriePizza cate;
+	
 	private static int nbpizzas;
 
+	
 	public Pizza(String code, String nom, double prix, CategoriePizza cate) {
 		super();	
 		this.id= nbpizzas;
@@ -47,7 +58,8 @@ public class Pizza {
 		this.prix = prix;
 	}
 
-	public void afficher() {
-			System.out.println(code + " -> "+ nom + " (" + prix+"€)"+" / categorie :"+cate.toString());
+	public String toString(){
+		return StringUtils.getStringValue(this);
 	}
+	
 }
