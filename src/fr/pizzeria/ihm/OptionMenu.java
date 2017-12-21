@@ -1,6 +1,8 @@
 package fr.pizzeria.ihm;
 
 import fr.pizzeria.dao.PizzaDaoImpl;
+import fr.pizzeria.exception.UpdatePizzaException;
+
 import java.util.Scanner;
 
 /**
@@ -28,6 +30,7 @@ public abstract class OptionMenu {
 
 	/**
 	 * @return
+	 * @throws UpdatePizzaException 
 	 */
 	public abstract boolean execute();
 }

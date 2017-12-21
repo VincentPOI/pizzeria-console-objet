@@ -3,6 +3,8 @@ package fr.pizzeria.ihm;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDaoImpl;
+import fr.pizzeria.exception.SavePizzaException;
+import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.Pizza;
 
 public class ModifierPizzaOptionMenu extends OptionMenu {
@@ -47,7 +49,11 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 		prix = scn.nextDouble();
 		
 		
-		this.tabpizza.updatePizza(codeupdatepizza, new Pizza(code, nom, prix));
+		try {
+			this.tabpizza.updatePizza(codeupdatepizza, new Pizza(code, nom, prix));
+		} catch (UpdatePizzaException e) {
+			System.out.println(e.getMessage());
+		}
 		
 
 		return true;

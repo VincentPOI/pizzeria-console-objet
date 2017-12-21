@@ -3,6 +3,7 @@ package fr.pizzeria.ihm;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDaoImpl;
+import fr.pizzeria.exception.DeletePizzaException;
 
 public class SupprimerPizzaOptionMenu extends OptionMenu {
 
@@ -33,7 +34,12 @@ public class SupprimerPizzaOptionMenu extends OptionMenu {
 		}
 		
 		
-		this.tabpizza.deletePizza(codedeletepizza);
+		try {
+			this.tabpizza.deletePizza(codedeletepizza);
+		} catch (DeletePizzaException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
 		
 		return true;
 
