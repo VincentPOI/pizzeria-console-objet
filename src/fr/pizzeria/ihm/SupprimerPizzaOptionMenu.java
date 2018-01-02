@@ -2,12 +2,16 @@ package fr.pizzeria.ihm;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import fr.pizzeria.dao.PizzaDaoImpl;
 import fr.pizzeria.exception.DeletePizzaException;
 
 public class SupprimerPizzaOptionMenu extends OptionMenu {
 
 	private String libelle;
+	private static final Logger LOG = LoggerFactory.getLogger("dev.console");
 
 	/**
 	 * @param tabpizza
@@ -24,9 +28,9 @@ public class SupprimerPizzaOptionMenu extends OptionMenu {
 
 	@Override
 	public boolean execute() {
-		System.out.println("Suppression d'une pizza :");
-		System.out.println("Code de la pizza à supprimer ?");
-		System.out.println("(99 pour abandoner)");
+		LOG.info("Suppression d'une pizza :");
+		LOG.info("Code de la pizza à supprimer ?");
+		LOG.info("(99 pour abandoner)");
 		String codedeletepizza = scn.next();
 		
 		if (codedeletepizza.equals(99)) {
@@ -38,7 +42,7 @@ public class SupprimerPizzaOptionMenu extends OptionMenu {
 			this.tabpizza.deletePizza(codedeletepizza);
 		} catch (DeletePizzaException e) {
 			// TODO Auto-generated catch block
-			System.out.println(e.getMessage());
+			LOG.info(e.getMessage());
 		}
 		
 		return true;

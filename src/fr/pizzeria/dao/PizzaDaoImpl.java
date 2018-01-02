@@ -26,25 +26,22 @@ public class PizzaDaoImpl implements IPizzaDao {
 	}
 
 
-	@Override
 	public List<Pizza> findAllPizzas() {
 		return pizzas;
 	}
 
-	@Override
 	public boolean saveNewPizza(Pizza pizza) throws SavePizzaException {
 		this.pizzas.add(pizza);
 		return false;
 	}
 
-	@Override
 	public boolean updatePizza(String codePizza, Pizza pizza) throws UpdatePizzaException {
 
 		boolean pizzaUpdate = false;
 
 		for (Pizza piz : this.pizzas) {
 			if (piz.getCode().equals(codePizza)) {
-				this.pizzas.set(this.pizzas.indexOf(piz), pizza);
+				this.pizzas.set(this.pizzas.indexOf(piz), pizza);		
 				pizzaUpdate = true;
 			}
 		}
@@ -55,7 +52,6 @@ public class PizzaDaoImpl implements IPizzaDao {
 		return false;
 	}
 
-	@Override
 	public boolean deletePizza(String codePizza) throws DeletePizzaException {
 
 		boolean pizzaDelete = false;

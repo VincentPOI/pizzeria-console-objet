@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import fr.pizzeria.dao.PizzaDaoImpl;
 
 public class Menu {
@@ -11,6 +14,7 @@ public class Menu {
 	private PizzaDaoImpl tabpizza;
 	private Scanner scn;
 	private List<OptionMenu> listeOptions = new ArrayList<OptionMenu>();
+	private static final Logger LOG = LoggerFactory.getLogger("dev.console");
 
 	public OptionMenu getOptions(int i) {
 		return listeOptions.get(i);
@@ -35,9 +39,9 @@ public class Menu {
 	}
 
 	public void afficher() {
-		System.out.println("***** Pizzeria Administration *****");
+		LOG.info("***** Pizzeria Administration *****");
 		for (OptionMenu option : listeOptions) {
-            System.out.println(option.getLibelle());
+            LOG.info(option.getLibelle());
         }
 	}
 

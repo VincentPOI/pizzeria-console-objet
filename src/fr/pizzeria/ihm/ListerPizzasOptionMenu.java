@@ -3,6 +3,9 @@ package fr.pizzeria.ihm;
 import java.util.List;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import fr.pizzeria.dao.PizzaDaoImpl;
 import fr.pizzeria.model.Pizza;
 
@@ -13,6 +16,7 @@ import fr.pizzeria.model.Pizza;
 public class ListerPizzasOptionMenu extends OptionMenu {
 
 	private String libelle;
+	private static final Logger LOG = LoggerFactory.getLogger("dev.console");
 
 	/**
 	 * @param tabpizza
@@ -32,7 +36,7 @@ public class ListerPizzasOptionMenu extends OptionMenu {
 		
 		List<Pizza> pizzas= this.tabpizza.findAllPizzas();
 		for (Pizza pizza : pizzas) {
-            System.out.println(pizza);
+            LOG.info(pizza.toString());
         }
 		return true;
 	}

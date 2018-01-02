@@ -2,8 +2,10 @@ package fr.pizzeria.ihm;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import fr.pizzeria.dao.PizzaDaoImpl;
-import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
@@ -11,6 +13,7 @@ import fr.pizzeria.model.Pizza;
 public class ModifierPizzaOptionMenu extends OptionMenu {
 
 	private String libelle;
+	private static final Logger LOG = LoggerFactory.getLogger("dev.console");
 
 	/**
 	 * @param tabpizza
@@ -27,9 +30,9 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 
 	@Override
 	public boolean execute() {
-		System.out.println("Mise à jour d'une pizza :");
-		System.out.println("Code de la pizza à mettre à jours ?");
-		System.out.println("(99 pour abandoner)");
+		LOG.info("Mise à jour d'une pizza :");
+		LOG.info("Code de la pizza à mettre à jours ?");
+		LOG.info("(99 pour abandoner)");
 
 		String codeupdatepizza = scn.next();
 
@@ -38,19 +41,19 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 		}
 		
 		String code;
-		System.out.println("saisir code :");
+		LOG.info("saisir code :");
 		code = scn.next();
 		
 
 		String nom;
-		System.out.println("saisir nom (sans espace):");
+		LOG.info("saisir nom (sans espace):");
 		nom = scn.next();
 
 		double prix;
-		System.out.println("saisir prix :");
+		LOG.info("saisir prix :");
 		prix = scn.nextDouble();
 		
-		System.out.println("saisir la catégorie (VIANDE/POISSON/SANS_VIANDE) :");
+		LOG.info("saisir la catégorie (VIANDE/POISSON/SANS_VIANDE) :");
 		CategoriePizza cate = CategoriePizza.valueOf(scn.next().toUpperCase());
 		
 		try {

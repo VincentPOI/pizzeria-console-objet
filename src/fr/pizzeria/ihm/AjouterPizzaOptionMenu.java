@@ -2,6 +2,9 @@ package fr.pizzeria.ihm;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import fr.pizzeria.dao.PizzaDaoImpl;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.model.CategoriePizza;
@@ -10,7 +13,7 @@ import fr.pizzeria.model.Pizza;
 public class AjouterPizzaOptionMenu extends OptionMenu {
 
 	private String libelle;
-
+	private static final Logger LOG = LoggerFactory.getLogger("dev.console");
 	/**
 	 * @param tabpizza
 	 */
@@ -26,28 +29,28 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 
 	@Override
 	public boolean execute() {
-		System.out.println("Ajout d'une nouvelle pizza :");
+		LOG.info("Ajout d'une nouvelle pizza :");
 
 		String code;
-		System.out.println("saisir code :");
+		LOG.info("saisir code :");
 		code = scn.next();
 
 		String nom;
-		System.out.println("saisir nom (sans espace):");
+		LOG.info("saisir nom (sans espace):");
 		nom = scn.next();
 
 		double prix;
-		System.out.println("saisir prix :");
+		LOG.info("saisir prix :");
 		prix = scn.nextDouble();
 		
 		
-		System.out.println("saisir la catégorie (VIANDE/POISSON/SANS_VIANDE):");
+		LOG.info("saisir la catégorie (VIANDE/POISSON/SANS_VIANDE):");
 		CategoriePizza cate = CategoriePizza.valueOf(scn.next().toUpperCase());
 		
 		try {
 			this.tabpizza.saveNewPizza(new Pizza(code, nom, prix,cate));
 		} catch (SavePizzaException e) {
-			System.out.println(e.getMessage());
+			LOG.info(e.getMessage());
 		}
 
 		return false;
