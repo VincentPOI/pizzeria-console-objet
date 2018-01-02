@@ -9,11 +9,12 @@ import fr.pizzeria.dao.PizzaDaoImpl;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
+import static fr.pizzeria.console.PizzeriaAdminConsoleApp.LOG;
 
 public class AjouterPizzaOptionMenu extends OptionMenu {
 
 	private String libelle;
-	private static final Logger LOG = LoggerFactory.getLogger("dev.console");
+//	private static final Logger LOG = LoggerFactory.getLogger("dev.console");
 	/**
 	 * @param tabpizza
 	 */

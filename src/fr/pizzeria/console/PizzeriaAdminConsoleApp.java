@@ -9,10 +9,11 @@ import fr.pizzeria.model.Pizza;
 import fr.pizzeria.dao.PizzaDaoImpl;
 import fr.pizzeria.ihm.Menu;
 
+
 public class PizzeriaAdminConsoleApp {
 
 	public static Pizza[] pizzas = new Pizza[1000];
-	private static final Logger LOG = LoggerFactory.getLogger("dev.console");
+	public static final Logger LOG = LoggerFactory.getLogger("dev.console");
 
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);

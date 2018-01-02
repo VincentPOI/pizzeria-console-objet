@@ -8,7 +8,7 @@
 	</appender>
 	<!-- redirection vers un fichier -->
 	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
-		<file>C:\Users\ETY5\Documents\workspace\demo-logging\app.log</file>
+		<file>C:\Users\ETY5\Documents\workspace\pizzeria-console-objet\app.log</file>
 		<append>true</append>
 		<immediateFlush>true</immediateFlush>
 		<encoder>

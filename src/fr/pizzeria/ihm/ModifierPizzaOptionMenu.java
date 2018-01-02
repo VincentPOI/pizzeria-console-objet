@@ -2,8 +2,7 @@ package fr.pizzeria.ihm;
 
 import java.util.Scanner;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static fr.pizzeria.console.PizzeriaAdminConsoleApp.LOG;
 
 import fr.pizzeria.dao.PizzaDaoImpl;
 import fr.pizzeria.exception.UpdatePizzaException;
@@ -13,7 +12,7 @@ import fr.pizzeria.model.Pizza;
 public class ModifierPizzaOptionMenu extends OptionMenu {
 
 	private String libelle;
-	private static final Logger LOG = LoggerFactory.getLogger("dev.console");
+
 
 	/**
 	 * @param tabpizza
