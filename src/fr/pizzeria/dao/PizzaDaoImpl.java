@@ -10,7 +10,6 @@ import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoImpl implements IPizzaDao {
 
-	// public Pizza[] pizzas;
 	public List<Pizza> pizzas = new ArrayList<Pizza>();
 
 	public PizzaDaoImpl() {

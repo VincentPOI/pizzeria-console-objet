@@ -1,20 +1,17 @@
 package fr.pizzeria.ihm;
 
-import java.util.Scanner;
+import static fr.pizzeria.console.PizzeriaAdminConsoleApp.LOG;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDaoImpl;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
-import static fr.pizzeria.console.PizzeriaAdminConsoleApp.LOG;
 
 public class AjouterPizzaOptionMenu extends OptionMenu {
 
 	private String libelle;
-//	private static final Logger LOG = LoggerFactory.getLogger("dev.console");
 	/**
 	 * @param tabpizza
 	 */
@@ -47,7 +44,6 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 		
 		LOG.info("saisir la catégorie (VIANDE/POISSON/SANS_VIANDE):");
 		CategoriePizza cate = CategoriePizza.valueOf(scn.next().toUpperCase());
-		
 		try {
 			this.tabpizza.saveNewPizza(new Pizza(code, nom, prix,cate));
 		} catch (SavePizzaException e) {

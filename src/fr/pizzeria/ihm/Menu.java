@@ -1,9 +1,11 @@
 package fr.pizzeria.ihm;
 
 import static fr.pizzeria.console.PizzeriaAdminConsoleApp.LOG;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 import fr.pizzeria.dao.PizzaDaoImpl;
 
 public class Menu {
