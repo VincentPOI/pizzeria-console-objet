@@ -49,9 +49,10 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 		} catch (SavePizzaException e) {
 			LOG.info(e.getMessage());
 		}catch (NumberFormatException e){		
-			LOG.info("le prix doit etre un réel");
+			LOG.info("le prix doit etre un réel" +e.getMessage());
+		}catch(IllegalArgumentException e){
+		LOG.info("veuillez saisir une catégorie valable : VIANDE/POISSON/SANS_VIANDE " +e.getMessage());
 		}
-
 		return false;
 
 	}

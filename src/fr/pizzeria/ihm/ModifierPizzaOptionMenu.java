@@ -63,7 +63,9 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 			System.out.println(e.getMessage());
 		}catch (NumberFormatException e){		
 			LOG.info("le prix doit etre un réel");
-		}
+		}catch(IllegalArgumentException e){
+			LOG.info("veuillez saisir une catégorie valable : VIANDE/POISSON/SANS_VIANDE " +e.getMessage());
+			}
 		
 
 		return true;

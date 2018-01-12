@@ -39,7 +39,7 @@ public class IPizzaDaoJDBC implements IPizzaDao {
 		Statement statement;
 		try {
 			statement = conn.createStatement();
-			ResultSet resultats = statement.executeQuery("SELECT * FROM pizza");
+			ResultSet resultats = statement.executeQuery("SELECT * FROM bh5dnoeun.pizza");
 			while (resultats.next()) {
 				String code = resultats.getString("Code");
 				String name = resultats.getString("Name");
@@ -60,7 +60,7 @@ public class IPizzaDaoJDBC implements IPizzaDao {
 	public boolean saveNewPizza(Pizza pizza) throws SavePizzaException {
 		PreparedStatement savePizza;
 		try {
-			savePizza = conn.prepareStatement("INSERT INTO pizza (code,Name,Price,Category) VALUES (?,?,?,?)");
+			savePizza = conn.prepareStatement("INSERT INTO bh5dnoeun.pizza (code,Name,Price,Category) VALUES (?,?,?,?)");
 			savePizza.setString(1, pizza.getCode());
 			savePizza.setString(2, pizza.getNom());
 			savePizza.setDouble(3, pizza.getPrix());
@@ -78,7 +78,7 @@ public class IPizzaDaoJDBC implements IPizzaDao {
 		
 		PreparedStatement updtPizza;
 		try {
-			updtPizza = conn.prepareStatement("UPDATE pizza SET Code=?, Name=?, Price=?, Category=? WHERE Code=?");
+			updtPizza = conn.prepareStatement("UPDATE bh5dnoeun.pizza SET Code=?, Name=?, Price=?, Category=? WHERE Code=?");
 			updtPizza.setString(1, pizza.getCode());
 			updtPizza.setString(2, pizza.getNom());
 			updtPizza.setDouble(3, pizza.getPrix());
@@ -99,7 +99,7 @@ public class IPizzaDaoJDBC implements IPizzaDao {
 	public boolean deletePizza(String codePizza) throws DeletePizzaException {	
 		PreparedStatement dltPizza;
 		try {
-			dltPizza = conn.prepareStatement("DELETE FROM pizza WHERE code=?");
+			dltPizza = conn.prepareStatement("DELETE FROM bh5dnoeun.pizza WHERE code=?");
 			dltPizza.setString(1, codePizza);
 			int del = dltPizza.executeUpdate();
 			dltPizza.close();
