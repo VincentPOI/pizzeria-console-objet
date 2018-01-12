@@ -6,11 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import fr.pizzeria.dao.IPizzaDao;
+import fr.pizzeria.dao.IPizzaDaoJDBC;
 import fr.pizzeria.dao.PizzaDaoImpl;
 
 public class Menu {
 
-	private PizzaDaoImpl tabpizza;
+	private IPizzaDao tabpizza;
 	private Scanner scn;
 	private List<OptionMenu> listeOptions = new ArrayList<OptionMenu>();
 
@@ -18,7 +20,7 @@ public class Menu {
 		return listeOptions.get(i);
 	}
 
-	public Menu(PizzaDaoImpl tabpizza, Scanner scn) {
+	public Menu(IPizzaDao tabpizza, Scanner scn) {
 		super();
 		this.tabpizza = tabpizza;
 		this.scn = scn;
@@ -28,7 +30,8 @@ public class Menu {
 		listeOptions.add(new SupprimerPizzaOptionMenu(tabpizza, scn));
 	}
 
-	public PizzaDaoImpl getTabpizza() {
+
+	public IPizzaDao getTabpizza() {
 		return tabpizza;
 	}
 

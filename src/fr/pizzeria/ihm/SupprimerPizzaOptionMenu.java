@@ -1,10 +1,10 @@
 package fr.pizzeria.ihm;
 
-import java.util.Scanner;
-
 import static fr.pizzeria.console.PizzeriaAdminConsoleApp.LOG;
 
-import fr.pizzeria.dao.PizzaDaoImpl;
+import java.util.Scanner;
+
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.exception.DeletePizzaException;
 
 public class SupprimerPizzaOptionMenu extends OptionMenu {
@@ -14,7 +14,7 @@ public class SupprimerPizzaOptionMenu extends OptionMenu {
 	/**
 	 * @param tabpizza
 	 */
-	public SupprimerPizzaOptionMenu(PizzaDaoImpl tabpizza, Scanner scn) {
+	public SupprimerPizzaOptionMenu(IPizzaDao tabpizza, Scanner scn) {
 		super(tabpizza, scn);
 		this.libelle = super.getLibelle() + "Supprimer une pizza";
 	}

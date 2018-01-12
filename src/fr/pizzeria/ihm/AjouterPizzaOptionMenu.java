@@ -4,7 +4,7 @@ import static fr.pizzeria.console.PizzeriaAdminConsoleApp.LOG;
 
 import java.util.Scanner;
 
-import fr.pizzeria.dao.PizzaDaoImpl;
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
@@ -15,7 +15,7 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 	/**
 	 * @param tabpizza
 	 */
-	public AjouterPizzaOptionMenu(PizzaDaoImpl tabpizza, Scanner scn) {
+	public AjouterPizzaOptionMenu(IPizzaDao tabpizza, Scanner scn) {
 		super(tabpizza, scn);
 		this.libelle = super.getLibelle() + "Ajouter une pizza";
 	}

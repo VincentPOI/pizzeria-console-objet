@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm;
 
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.PizzaDaoImpl;
 import fr.pizzeria.exception.UpdatePizzaException;
 
@@ -12,16 +13,16 @@ import java.util.Scanner;
 public abstract class OptionMenu {
 
 	protected String libelle;
-	protected PizzaDaoImpl tabpizza;
+	protected IPizzaDao tabpizza;
 	protected Scanner scn;
 	private static int nboptions;
 
-	public OptionMenu(PizzaDaoImpl tabpizza, Scanner scn) {
+	public OptionMenu(IPizzaDao tabpizza2, Scanner scn) {
 		super();
 		this.scn = scn;
 		this.libelle = Integer.toString(nboptions + 1) + ". ";
 		OptionMenu.nboptions++;
-		this.tabpizza = tabpizza;
+		this.tabpizza = tabpizza2;
 	}
 
 	public String getLibelle() {

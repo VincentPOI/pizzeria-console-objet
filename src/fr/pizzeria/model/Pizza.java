@@ -30,6 +30,14 @@ public class Pizza {
 		Pizza.nbpizzas++;	
 	}
 
+	public CategoriePizza getCate() {
+		return cate;
+	}
+
+	public void setCate(CategoriePizza cate) {
+		this.cate = cate;
+	}
+
 	public int getId() {
 		return id;
 	}

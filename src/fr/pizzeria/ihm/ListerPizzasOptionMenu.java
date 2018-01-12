@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import static fr.pizzeria.console.PizzeriaAdminConsoleApp.LOG;
+
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.PizzaDaoImpl;
 import fr.pizzeria.model.Pizza;
 
@@ -19,7 +21,7 @@ public class ListerPizzasOptionMenu extends OptionMenu {
 	/**
 	 * @param tabpizza
 	 */
-	public ListerPizzasOptionMenu(PizzaDaoImpl tabpizza, Scanner scn) {
+	public ListerPizzasOptionMenu(IPizzaDao tabpizza, Scanner scn) {
 		super(tabpizza, null);
 		this.libelle = super.getLibelle() + "Lister les pizzas";
 	}

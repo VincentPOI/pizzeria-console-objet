@@ -1,10 +1,10 @@
 package fr.pizzeria.ihm;
 
-import java.util.Scanner;
-
 import static fr.pizzeria.console.PizzeriaAdminConsoleApp.LOG;
 
-import fr.pizzeria.dao.PizzaDaoImpl;
+import java.util.Scanner;
+
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
@@ -17,7 +17,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 	/**
 	 * @param tabpizza
 	 */
-	public ModifierPizzaOptionMenu(PizzaDaoImpl tabpizza, Scanner scn) {
+	public ModifierPizzaOptionMenu(IPizzaDao tabpizza, Scanner scn) {
 		super(tabpizza, scn);
 		this.libelle = super.getLibelle() + "Modifier une pizza";
 	}
