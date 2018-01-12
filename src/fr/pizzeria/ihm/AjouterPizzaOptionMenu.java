@@ -29,6 +29,7 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 	public boolean execute() {
 		LOG.info("Ajout d'une nouvelle pizza :");
 
+		try {
 		String code;
 		LOG.info("saisir code :");
 		code = scn.next();
@@ -39,15 +40,16 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 
 		double prix;
 		LOG.info("saisir prix :");
-		prix = scn.nextDouble();
-		
+		prix =  Double.parseDouble(scn.next()) ;	
 		
 		LOG.info("saisir la catégorie (VIANDE/POISSON/SANS_VIANDE):");
 		CategoriePizza cate = CategoriePizza.valueOf(scn.next().toUpperCase());
-		try {
+		
 			this.tabpizza.saveNewPizza(new Pizza(code, nom, prix,cate));
 		} catch (SavePizzaException e) {
 			LOG.info(e.getMessage());
+		}catch (NumberFormatException e){		
+			LOG.info("le prix doit etre un réel");
 		}
 
 		return false;

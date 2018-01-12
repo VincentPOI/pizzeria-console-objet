@@ -27,10 +27,11 @@ public class IPizzaDaoJDBC implements IPizzaDao {
 	
 
 	public IPizzaDaoJDBC() throws ClassNotFoundException, SQLException {
-		driver = ResourceBundle.getBundle("jdbc").getString("driver");
-		url = ResourceBundle.getBundle("jdbc").getString("url");
-		user = ResourceBundle.getBundle("jdbc").getString("user");
-		password = ResourceBundle.getBundle("jdbc").getString("password");
+		ResourceBundle bundle = ResourceBundle.getBundle("jdbc");
+		driver = bundle.getString("driver");
+		url = bundle.getString("url");
+		user = bundle.getString("user");
+		password = bundle.getString("password");
 		Class.forName(driver);
 		conn = DriverManager.getConnection(url, user, password);
 	}
@@ -54,7 +55,6 @@ public class IPizzaDaoJDBC implements IPizzaDao {
 			resultats.close();
 			statement.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -64,7 +64,7 @@ public class IPizzaDaoJDBC implements IPizzaDao {
 	public boolean saveNewPizza(Pizza pizza) throws SavePizzaException {
 		PreparedStatement savePizza;
 		try {
-			savePizza = conn.prepareStatement("INSERT INTO pizza VALUES (?,?,?,?)");
+			savePizza = conn.prepareStatement("INSERT INTO pizza (code,Name,Price,Category) VALUES (?,?,?,?)");
 			savePizza.setString(1, pizza.getCode());
 			savePizza.setString(2, pizza.getNom());
 			savePizza.setDouble(3, pizza.getPrix());
@@ -88,11 +88,14 @@ public class IPizzaDaoJDBC implements IPizzaDao {
 			updtPizza.setDouble(3, pizza.getPrix());
 			updtPizza.setString(4, pizza.getCate().toString());
 			updtPizza.setString(5,codePizza);
-			updtPizza.executeUpdate();
+			int maj = updtPizza.executeUpdate();
 			updtPizza.close();
+			if (maj == 0)
+				throw new UpdatePizzaException("Pizza non existante");
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.getMessage();
 		}
 		return true;
 	}
@@ -102,24 +105,24 @@ public class IPizzaDaoJDBC implements IPizzaDao {
 		try {
 			dltPizza = conn.prepareStatement("DELETE FROM pizza WHERE code=?");
 			dltPizza.setString(1, codePizza);
-			dltPizza.executeUpdate();
+			int del = dltPizza.executeUpdate();
 			dltPizza.close();
+			if (del == 0)
+				throw new DeletePizzaException("Pizza non existante");
+			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.getMessage();
 		}
 		return true;
 	}
 	
 
-	// Statement statement = conn.createStatement();
-	// int nbPizzaInsere = statement.executeUpdate("INSERT INTO pizza
-	// VALUES('PEP', 'Pépéroni', 12.50, 'VIANDE'),('MAR', 'Margherita', 14.00,
-	// 'SANS_VIANDE'),('REIN', 'La Reine', 11.50, 'VIANDE'),('FRO', 'Les 4
-	// fromages', 12.00,'SANS_VIANDE'),('CAN', 'La cannibale',
-	// 12.50,'VIANDE'),('SAV', 'La savoyarde', 13.00,'VIANDE'),('ORI',
-	// 'L''Orientale', 13.50,'VIANDE'),('IND', 'L''indienne', 14.00,'VIANDE')");
-	// System.out.println();
-	// statement.close();
+	public void closeConn(){
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

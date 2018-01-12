@@ -50,7 +50,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 
 		double prix;
 		LOG.info("saisir prix :");
-		prix = scn.nextDouble();
+		prix =  Double.parseDouble(scn.next()) ;	
 		
 		LOG.info("saisir la catégorie (VIANDE/POISSON/SANS_VIANDE) :");
 		CategoriePizza cate = CategoriePizza.valueOf(scn.next().toUpperCase());
@@ -59,6 +59,8 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 			this.tabpizza.updatePizza(codeupdatepizza, new Pizza(code, nom, prix,cate));
 		} catch (UpdatePizzaException e) {
 			System.out.println(e.getMessage());
+		}catch (NumberFormatException e){		
+			LOG.info("le prix doit etre un réel");
 		}
 		
 

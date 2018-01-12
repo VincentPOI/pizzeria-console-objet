@@ -63,6 +63,7 @@ public class PizzeriaAdminConsoleApp {
 		} while (choix != 99);
 
 		LOG.info("Aurevoir :(");
+		((IPizzaDaoJDBC)pizzas).closeConn();
 		scn.close();
 	}
 }
