@@ -29,6 +29,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 
 	@Override
 	public boolean execute() {
+		try {
 		LOG.info("Mise à jour d'une pizza :");
 		LOG.info("Code de la pizza à mettre à jours ?");
 		LOG.info("(99 pour abandoner)");
@@ -38,6 +39,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 		if (codeupdatepizza.equals(99)) {
 			return false;
 		}
+		
 		
 		String code;
 		LOG.info("saisir code :");
@@ -55,7 +57,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 		LOG.info("saisir la catégorie (VIANDE/POISSON/SANS_VIANDE) :");
 		CategoriePizza cate = CategoriePizza.valueOf(scn.next().toUpperCase());
 		
-		try {
+		
 			this.tabpizza.updatePizza(codeupdatepizza, new Pizza(code, nom, prix,cate));
 		} catch (UpdatePizzaException e) {
 			System.out.println(e.getMessage());

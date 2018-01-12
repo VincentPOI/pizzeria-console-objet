@@ -571,3 +571,123 @@
 15:34:06.361 [main] INFO  dev.console - 3. Modifier une pizza
 15:34:06.361 [main] INFO  dev.console - 4. Supprimer une pizza
 15:34:06.361 [main] INFO  dev.console - 99. Quitter
+15:37:57.306 [main] INFO  dev.console - ***** Pizzeria Administration *****
+15:37:57.306 [main] INFO  dev.console - 1. Lister les pizzas
+15:37:57.306 [main] INFO  dev.console - 2. Ajouter une pizza
+15:37:57.306 [main] INFO  dev.console - 3. Modifier une pizza
+15:37:57.306 [main] INFO  dev.console - 4. Supprimer une pizza
+15:37:57.306 [main] INFO  dev.console - 99. Quitter
+15:37:59.214 [main] INFO  dev.console - Suppression d'une pizza :
+15:37:59.216 [main] INFO  dev.console - Code de la pizza à supprimer ?
+15:37:59.216 [main] INFO  dev.console - (99 pour abandoner)
+15:38:00.335 [main] INFO  dev.console - Pizza non existante
+15:38:00.335 [main] INFO  dev.console - ***** Pizzeria Administration *****
+15:38:00.335 [main] INFO  dev.console - 1. Lister les pizzas
+15:38:00.335 [main] INFO  dev.console - 2. Ajouter une pizza
+15:38:00.335 [main] INFO  dev.console - 3. Modifier une pizza
+15:38:00.335 [main] INFO  dev.console - 4. Supprimer une pizza
+15:38:00.335 [main] INFO  dev.console - 99. Quitter
+15:40:42.878 [main] INFO  dev.console - PEP -> Pépéroni (12.5€) Viande
+15:40:42.890 [main] INFO  dev.console - KEB -> Kebab (15.0€) Viande
+15:40:42.890 [main] INFO  dev.console - ***** Pizzeria Administration *****
+15:40:42.890 [main] INFO  dev.console - 1. Lister les pizzas
+15:40:42.890 [main] INFO  dev.console - 2. Ajouter une pizza
+15:40:42.890 [main] INFO  dev.console - 3. Modifier une pizza
+15:40:42.890 [main] INFO  dev.console - 4. Supprimer une pizza
+15:40:42.890 [main] INFO  dev.console - 99. Quitter
+15:40:47.053 [main] INFO  dev.console - Ajout d'une nouvelle pizza :
+15:40:47.063 [main] INFO  dev.console - saisir code :
+15:40:54.132 [main] INFO  dev.console - saisir nom (sans espace):
+15:41:05.540 [main] INFO  dev.console - saisir prix :
+15:41:08.184 [main] INFO  dev.console - saisir la catégorie (VIANDE/POISSON/SANS_VIANDE):
+15:41:11.804 [main] INFO  dev.console - ***** Pizzeria Administration *****
+15:41:11.804 [main] INFO  dev.console - 1. Lister les pizzas
+15:41:11.818 [main] INFO  dev.console - 2. Ajouter une pizza
+15:41:11.818 [main] INFO  dev.console - 3. Modifier une pizza
+15:41:11.818 [main] INFO  dev.console - 4. Supprimer une pizza
+15:41:11.819 [main] INFO  dev.console - 99. Quitter
+15:41:14.035 [main] INFO  dev.console - PEP -> Pépéroni (12.5€) Viande
+15:41:14.048 [main] INFO  dev.console - KEB -> Kebab (15.0€) Viande
+15:41:14.048 [main] INFO  dev.console - FDS -> ffffffffffffffffffffffffffffff (45.0€) Poisson
+15:41:14.048 [main] INFO  dev.console - ***** Pizzeria Administration *****
+15:41:14.048 [main] INFO  dev.console - 1. Lister les pizzas
+15:41:14.048 [main] INFO  dev.console - 2. Ajouter une pizza
+15:41:14.048 [main] INFO  dev.console - 3. Modifier une pizza
+15:41:14.048 [main] INFO  dev.console - 4. Supprimer une pizza
+15:41:14.048 [main] INFO  dev.console - 99. Quitter
+15:41:31.953 [main] INFO  dev.console - Suppression d'une pizza :
+15:41:31.959 [main] INFO  dev.console - Code de la pizza à supprimer ?
+15:41:31.959 [main] INFO  dev.console - (99 pour abandoner)
+15:41:35.243 [main] INFO  dev.console - ***** Pizzeria Administration *****
+15:41:35.243 [main] INFO  dev.console - 1. Lister les pizzas
+15:41:35.252 [main] INFO  dev.console - 2. Ajouter une pizza
+15:41:35.252 [main] INFO  dev.console - 3. Modifier une pizza
+15:41:35.252 [main] INFO  dev.console - 4. Supprimer une pizza
+15:41:35.252 [main] INFO  dev.console - 99. Quitter
+15:41:53.264 [main] INFO  dev.console - PEP -> Pépéroni (12.5€) Viande
+15:41:53.272 [main] INFO  dev.console - KEB -> Kebab (15.0€) Viande
+15:41:53.272 [main] INFO  dev.console - ***** Pizzeria Administration *****
+15:41:53.272 [main] INFO  dev.console - 1. Lister les pizzas
+15:41:53.272 [main] INFO  dev.console - 2. Ajouter une pizza
+15:41:53.272 [main] INFO  dev.console - 3. Modifier une pizza
+15:41:53.272 [main] INFO  dev.console - 4. Supprimer une pizza
+15:41:53.272 [main] INFO  dev.console - 99. Quitter
+15:42:18.725 [main] INFO  dev.console - Mise à jour d'une pizza :
+15:42:18.735 [main] INFO  dev.console - Code de la pizza à mettre à jours ?
+15:42:18.735 [main] INFO  dev.console - (99 pour abandoner)
+15:42:26.792 [main] INFO  dev.console - saisir code :
+15:42:28.628 [main] INFO  dev.console - saisir nom (sans espace):
+15:42:30.055 [main] INFO  dev.console - saisir prix :
+15:43:50.545 [main] INFO  dev.console - ***** Pizzeria Administration *****
+15:43:50.545 [main] INFO  dev.console - 1. Lister les pizzas
+15:43:50.545 [main] INFO  dev.console - 2. Ajouter une pizza
+15:43:50.545 [main] INFO  dev.console - 3. Modifier une pizza
+15:43:50.545 [main] INFO  dev.console - 4. Supprimer une pizza
+15:43:50.545 [main] INFO  dev.console - 99. Quitter
+15:43:57.747 [main] INFO  dev.console - Mise à jour d'une pizza :
+15:43:57.751 [main] INFO  dev.console - Code de la pizza à mettre à jours ?
+15:43:57.751 [main] INFO  dev.console - (99 pour abandoner)
+15:44:00.368 [main] INFO  dev.console - saisir code :
+15:44:02.516 [main] INFO  dev.console - saisir nom (sans espace):
+15:44:04.868 [main] INFO  dev.console - saisir prix :
+15:45:05.646 [main] INFO  dev.console - ***** Pizzeria Administration *****
+15:45:05.646 [main] INFO  dev.console - 1. Lister les pizzas
+15:45:05.646 [main] INFO  dev.console - 2. Ajouter une pizza
+15:45:05.646 [main] INFO  dev.console - 3. Modifier une pizza
+15:45:05.646 [main] INFO  dev.console - 4. Supprimer une pizza
+15:45:05.646 [main] INFO  dev.console - 99. Quitter
+15:45:08.622 [main] INFO  dev.console - Mise à jour d'une pizza :
+15:45:08.622 [main] INFO  dev.console - Code de la pizza à mettre à jours ?
+15:45:08.622 [main] INFO  dev.console - (99 pour abandoner)
+15:45:14.421 [main] INFO  dev.console - saisir code :
+15:45:15.483 [main] INFO  dev.console - saisir nom (sans espace):
+15:45:16.502 [main] INFO  dev.console - saisir prix :
+15:45:18.170 [main] INFO  dev.console - le prix doit etre un réel
+15:45:18.182 [main] INFO  dev.console - ***** Pizzeria Administration *****
+15:45:18.182 [main] INFO  dev.console - 1. Lister les pizzas
+15:45:18.182 [main] INFO  dev.console - 2. Ajouter une pizza
+15:45:18.182 [main] INFO  dev.console - 3. Modifier une pizza
+15:45:18.182 [main] INFO  dev.console - 4. Supprimer une pizza
+15:45:18.182 [main] INFO  dev.console - 99. Quitter
+15:45:20.831 [main] INFO  dev.console - PEP -> Pépéroni (12.5€) Viande
+15:45:20.832 [main] INFO  dev.console - KEB -> Kebab (15.0€) Viande
+15:45:20.832 [main] INFO  dev.console - ***** Pizzeria Administration *****
+15:45:20.832 [main] INFO  dev.console - 1. Lister les pizzas
+15:45:20.832 [main] INFO  dev.console - 2. Ajouter une pizza
+15:45:20.832 [main] INFO  dev.console - 3. Modifier une pizza
+15:45:20.832 [main] INFO  dev.console - 4. Supprimer une pizza
+15:45:20.832 [main] INFO  dev.console - 99. Quitter
+15:49:59.326 [main] INFO  dev.console - ***** Pizzeria Administration *****
+15:49:59.342 [main] INFO  dev.console - 1. Lister les pizzas
+15:49:59.342 [main] INFO  dev.console - 2. Ajouter une pizza
+15:49:59.342 [main] INFO  dev.console - 3. Modifier une pizza
+15:49:59.342 [main] INFO  dev.console - 4. Supprimer une pizza
+15:49:59.342 [main] INFO  dev.console - 99. Quitter
+15:50:02.654 [main] INFO  dev.console - PEP -> Pépéroni (12.5€) Viande
+15:50:02.662 [main] INFO  dev.console - KEB -> Kebab (15.0€) Viande
+15:50:02.662 [main] INFO  dev.console - ***** Pizzeria Administration *****
+15:50:02.662 [main] INFO  dev.console - 1. Lister les pizzas
+15:50:02.662 [main] INFO  dev.console - 2. Ajouter une pizza
+15:50:02.662 [main] INFO  dev.console - 3. Modifier une pizza
+15:50:02.662 [main] INFO  dev.console - 4. Supprimer une pizza
+15:50:02.662 [main] INFO  dev.console - 99. Quitter

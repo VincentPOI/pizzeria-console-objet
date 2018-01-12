@@ -1,6 +1,6 @@
 package fr.pizzeria.dao;
 
-import java.math.BigDecimal;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,8 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
+import fr.pizzeria.console.PizzeriaAdminConsoleApp;
 import fr.pizzeria.exception.DeletePizzaException;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.exception.UpdatePizzaException;
@@ -19,19 +19,15 @@ import fr.pizzeria.model.Pizza;
 
 public class IPizzaDaoJDBC implements IPizzaDao {
 
-	String driver = "";
-	String url = "";
-	String user = "";
-	String password = "";
+	String driver = PizzeriaAdminConsoleApp.bundle.getString("driver");
+	String url = PizzeriaAdminConsoleApp.bundle.getString("url");
+	String user = PizzeriaAdminConsoleApp.bundle.getString("user");
+	String password = PizzeriaAdminConsoleApp.bundle.getString("password");
 	public Connection conn = null;
 	
 
 	public IPizzaDaoJDBC() throws ClassNotFoundException, SQLException {
-		ResourceBundle bundle = ResourceBundle.getBundle("jdbc");
-		driver = bundle.getString("driver");
-		url = bundle.getString("url");
-		user = bundle.getString("user");
-		password = bundle.getString("password");
+		
 		Class.forName(driver);
 		conn = DriverManager.getConnection(url, user, password);
 	}
@@ -91,7 +87,7 @@ public class IPizzaDaoJDBC implements IPizzaDao {
 			int maj = updtPizza.executeUpdate();
 			updtPizza.close();
 			if (maj == 0)
-				throw new UpdatePizzaException("Pizza non existante");
+				throw new UpdatePizzaException("Pizza à modifier non trouvée dans la base de données");
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -108,7 +104,7 @@ public class IPizzaDaoJDBC implements IPizzaDao {
 			int del = dltPizza.executeUpdate();
 			dltPizza.close();
 			if (del == 0)
-				throw new DeletePizzaException("Pizza non existante");
+				throw new DeletePizzaException("Pizza à supprimer non trouvée dans la base de données");
 			
 		} catch (SQLException e) {
 			e.getMessage();
