@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.IPizzaDao;
-import fr.pizzeria.dao.IPizzaDaoJDBC;
+import fr.pizzeria.dao.IPizzaDaoJPA;
 import fr.pizzeria.dao.PizzaDaoImpl;
 
 public class Menu {

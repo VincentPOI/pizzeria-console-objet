@@ -14,12 +14,12 @@ import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.Pizza;
 
-public class IPizzaDaoJDBC implements IPizzaDao {
+public class IPizzaDaoJPA implements IPizzaDao {
 
 	EntityManagerFactory entityManagerFact = Persistence.createEntityManagerFactory("pu_pizza");
 	EntityManager em = entityManagerFact.createEntityManager();
 
-	public IPizzaDaoJDBC() {
+	public IPizzaDaoJPA() {
 
 	}
 
