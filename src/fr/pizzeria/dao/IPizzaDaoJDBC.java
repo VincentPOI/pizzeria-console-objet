@@ -26,7 +26,7 @@ public class IPizzaDaoJDBC implements IPizzaDao {
 
 		List<Pizza> pizzas = new ArrayList<Pizza>();
 
-		TypedQuery<Pizza> query = em.createQuery("SELECT FROM bh5dnoeun.pizza", Pizza.class);
+		TypedQuery<Pizza> query = em.createQuery("SELECT p FROM Pizza p", Pizza.class);
 		for (Pizza p : query.getResultList()) {
 			pizzas.add(p);
 		}
@@ -43,7 +43,7 @@ public class IPizzaDaoJDBC implements IPizzaDao {
 
 	public boolean updatePizza(String codePizza, Pizza pizza) {
 
-		TypedQuery<Pizza> query = em.createQuery("FROM bh5dnoeun.pizza WHERE Code=:target", Pizza.class);
+		TypedQuery<Pizza> query = em.createQuery("from Pizza WHERE code=:target", Pizza.class);
 		query.setParameter("target", codePizza);
 		Pizza p = query.getSingleResult();
 		if (p != null) {
@@ -60,7 +60,7 @@ public class IPizzaDaoJDBC implements IPizzaDao {
 
 	public boolean deletePizza(String codePizza)  {
 
-		TypedQuery<Pizza> query = em.createQuery("FROM bh5dnoeun.pizza WHERE code=:target",Pizza.class);
+		TypedQuery<Pizza> query = em.createQuery("from Pizza where code=:target",Pizza.class);
 		query.setParameter("target", codePizza);
 		Pizza p = query.getSingleResult();
 		if (p != null) {
