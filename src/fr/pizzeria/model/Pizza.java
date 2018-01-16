@@ -1,33 +1,49 @@
 package fr.pizzeria.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import fr.pizzeria.utils.StringUtils;
 import fr.pizzeria.utils.ToString;
+
+@Entity
+@Table(name = "pizza")
 public class Pizza {
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	@ToString(uppercase = true, separateur = " -> ")
+	@Column(name = "code")
 	private String code;
-	
+
 	@ToString(separateur = " (")
+	@Column(name = "Name")
 	private String nom;
-	
+
 	@ToString(separateur = "€) ")
+	@Column(name = "Price")
 	private double prix;
-	
+
 	@ToString
+	@Column(name = "Category")
 	private CategoriePizza cate;
-	
+
 	private static int nbpizzas;
 
-	
 	public Pizza(String code, String nom, double prix, CategoriePizza cate) {
-		super();	
-		this.id= nbpizzas;
+		super();
+		this.id = nbpizzas;
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
 		this.cate = cate;
-		Pizza.nbpizzas++;	
+		Pizza.nbpizzas++;
 	}
 
 	public CategoriePizza getCate() {
@@ -66,8 +82,8 @@ public class Pizza {
 		this.prix = prix;
 	}
 
-	public String toString(){
+	public String toString() {
 		return StringUtils.getStringValue(this);
 	}
-	
+
 }
