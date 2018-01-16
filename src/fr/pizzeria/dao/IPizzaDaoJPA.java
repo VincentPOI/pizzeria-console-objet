@@ -16,11 +16,14 @@ import fr.pizzeria.model.Pizza;
 
 public class IPizzaDaoJPA implements IPizzaDao {
 
-	EntityManagerFactory entityManagerFact = Persistence.createEntityManagerFactory("pu_pizza");
-	EntityManager em = entityManagerFact.createEntityManager();
-
+	public static EntityManagerFactory entityManagerFact;
+	static {
+		entityManagerFact = Persistence.createEntityManagerFactory("pu_pizza");
+	}
+	private EntityManager em;
+	
 	public IPizzaDaoJPA() {
-
+		EntityManager em = entityManagerFact.createEntityManager();
 	}
 
 	public List<Pizza> findAllPizzas() {
