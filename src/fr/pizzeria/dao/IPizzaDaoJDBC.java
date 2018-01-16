@@ -9,11 +9,12 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import fr.pizzeria.exception.DeletePizzaException;
 import fr.pizzeria.exception.SavePizzaException;
+import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.Pizza;
 
 public class IPizzaDaoJDBC implements IPizzaDao {
-
 
 	EntityManagerFactory entityManagerFact = Persistence.createEntityManagerFactory("pu_pizza");
 	EntityManager em = entityManagerFact.createEntityManager();
@@ -36,38 +37,48 @@ public class IPizzaDaoJDBC implements IPizzaDao {
 
 	public boolean saveNewPizza(Pizza pizza) throws SavePizzaException {
 		EntityTransaction transaction = em.getTransaction();
+		transaction.begin();
 		em.persist(pizza);
 		transaction.commit();
 		return true;
 	}
 
-	public boolean updatePizza(String codePizza, Pizza pizza) {
-
-		TypedQuery<Pizza> query = em.createQuery("from Pizza WHERE code=:target", Pizza.class);
-		query.setParameter("target", codePizza);
-		Pizza p = query.getSingleResult();
-		if (p != null) {
-			EntityTransaction transaction = em.getTransaction();
-			p.setCode(pizza.getCode());
-			p.setNom(pizza.getNom());
-			p.setPrix(pizza.getPrix());
-			p.setCate(pizza.getCate());
-			transaction.commit();
-			return true;
+	public boolean updatePizza(String codePizza, Pizza pizza) throws UpdatePizzaException {
+		try {
+			TypedQuery<Pizza> query = em.createQuery("from Pizza WHERE code=:target", Pizza.class);
+			query.setParameter("target", codePizza);
+			Pizza p = query.getSingleResult();
+			if (p != null) {
+				EntityTransaction transaction = em.getTransaction();
+				transaction.begin();
+				p.setCode(pizza.getCode());
+				p.setNom(pizza.getNom());
+				p.setPrix(pizza.getPrix());
+				p.setCate(pizza.getCate());
+				transaction.commit();
+				return true;
+			}
+		} catch (javax.persistence.NoResultException e) {
+			throw new UpdatePizzaException("cette pizza n'existe pas");
 		}
 		return false;
 	}
 
-	public boolean deletePizza(String codePizza)  {
+	public boolean deletePizza(String codePizza) throws DeletePizzaException {
 
-		TypedQuery<Pizza> query = em.createQuery("from Pizza where code=:target",Pizza.class);
-		query.setParameter("target", codePizza);
-		Pizza p = query.getSingleResult();
-		if (p != null) {
-			EntityTransaction transaction = em.getTransaction();
-			em.remove(p);
-			transaction.commit();
-			return true;
+		try {
+			TypedQuery<Pizza> query = em.createQuery("from Pizza where code=:target", Pizza.class);
+			query.setParameter("target", codePizza);
+			Pizza p = query.getSingleResult();
+			if (p != null) {
+				EntityTransaction transaction = em.getTransaction();
+				transaction.begin();
+				em.remove(p);
+				transaction.commit();
+				return true;
+			}
+		} catch (javax.persistence.NoResultException e) {
+			throw new DeletePizzaException("cette pizza n'existe pas");
 		}
 		return false;
 	}

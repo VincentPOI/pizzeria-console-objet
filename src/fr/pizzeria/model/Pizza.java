@@ -2,6 +2,8 @@ package fr.pizzeria.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,7 +17,7 @@ import fr.pizzeria.utils.ToString;
 public class Pizza {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@ToString(uppercase = true, separateur = " -> ")
@@ -31,19 +33,20 @@ public class Pizza {
 	private double prix;
 
 	@ToString
+	@Enumerated(EnumType.STRING)
 	@Column(name = "Category")
 	private CategoriePizza cate;
 
-	private static int nbpizzas;
 
 	public Pizza(String code, String nom, double prix, CategoriePizza cate) {
 		super();
-		this.id = nbpizzas;
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
 		this.cate = cate;
-		Pizza.nbpizzas++;
+	}
+	
+	public Pizza() {
 	}
 
 	public CategoriePizza getCate() {
