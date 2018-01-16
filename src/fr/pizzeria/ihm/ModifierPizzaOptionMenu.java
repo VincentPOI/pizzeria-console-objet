@@ -13,7 +13,6 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 
 	private String libelle;
 
-
 	/**
 	 * @param tabpizza
 	 */
@@ -30,43 +29,39 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 	@Override
 	public boolean execute() {
 		try {
-		LOG.info("Mise à jour d'une pizza :");
-		LOG.info("Code de la pizza à mettre à jours ?");
-		LOG.info("(99 pour abandoner)");
+			LOG.info("Mise à jour d'une pizza :");
+			LOG.info("Code de la pizza à mettre à jours ?");
+			LOG.info("(99 pour abandoner)");
 
-		String codeupdatepizza = scn.next();
+			String codeupdatepizza = scn.next();
 
-		if (codeupdatepizza.equals(99)) {
-			return false;
-		}
-		
-		
-		String code;
-		LOG.info("saisir code :");
-		code = scn.next();
-		
+			if (codeupdatepizza.equals(99)) {
+				return false;
+			}
 
-		String nom;
-		LOG.info("saisir nom (sans espace):");
-		nom = scn.next();
+			String code;
+			LOG.info("saisir code :");
+			code = scn.next();
 
-		double prix;
-		LOG.info("saisir prix :");
-		prix =  Double.parseDouble(scn.next()) ;	
-		
-		LOG.info("saisir la catégorie (VIANDE/POISSON/SANS_VIANDE) :");
-		CategoriePizza cate = CategoriePizza.valueOf(scn.next().toUpperCase());
-		
-		
-			this.tabpizza.updatePizza(codeupdatepizza, new Pizza(code, nom, prix,cate));
+			String nom;
+			LOG.info("saisir nom (sans espace):");
+			nom = scn.next();
+
+			double prix;
+			LOG.info("saisir prix :");
+			prix = Double.parseDouble(scn.next());
+
+			LOG.info("saisir la catégorie (VIANDE/POISSON/SANS_VIANDE) :");
+			CategoriePizza cate = CategoriePizza.valueOf(scn.next().toUpperCase());
+
+			this.tabpizza.updatePizza(codeupdatepizza, new Pizza(code, nom, prix, cate));
 		} catch (UpdatePizzaException e) {
 			System.out.println(e.getMessage());
-		}catch (NumberFormatException e){		
+		} catch (NumberFormatException e) {
 			LOG.info("le prix doit etre un réel");
-		}catch(IllegalArgumentException e){
-			LOG.info("veuillez saisir une catégorie valable : VIANDE/POISSON/SANS_VIANDE " +e.getMessage());
-			}
-		
+		} catch (IllegalArgumentException e) {
+			LOG.info("veuillez saisir une catégorie valable : VIANDE/POISSON/SANS_VIANDE " + e.getMessage());
+		}
 
 		return true;
 
